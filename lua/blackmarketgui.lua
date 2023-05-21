@@ -52,7 +52,6 @@ Hooks:PostHook(BlackMarketGui, "mouse_pressed", "InventorySorter", function (sel
 	local sort_button = self._panel:child("InventorySorter_sort")
 
 	if alive(sort_button) and sort_button:inside(x, y) and (button == left_button) then
-		local category = self._node:parameters().menu_component_data.category
 		managers.system_menu:show({
 			title = managers.localization:to_upper_text("InventorySorter_confirm_title"),
 			text = managers.localization:text("InventorySorter_confirm_text"),
@@ -60,7 +59,7 @@ Hooks:PostHook(BlackMarketGui, "mouse_pressed", "InventorySorter", function (sel
 				{
 					text = managers.localization:text("dialog_yes"),
 					callback_func = function ()
-						inventory_sorter.sort_items(category)
+						inventory_sorter.sort_items(self._data.category)
 						self:reload()
 					end
 				},
