@@ -6,21 +6,21 @@ Hooks:PostHook(BlackMarketGui, "_setup", "InventorySorter", function (self, is_s
 
 	if (category == "primaries") or (category == "secondaries") or (category == "masks") then
 		self._InventorySorter_is_highlighted = self._InventorySorter_is_highlighted or false
-		local panel = self._panel:panel({
+		local sort_button = self._panel:panel({
 			name = "InventorySorter_sort"
 		})
-		local text = panel:text({
+		local sort_text = sort_button:text({
 			name = "InventorySorter_text",
 			text = managers.localization:to_upper_text("InventorySorter_sort"),
 			font = tweak_data.menu.pd2_medium_font,
 			font_size = tweak_data.menu.pd2_medium_font_size,
 			color = self._InventorySorter_is_highlighted and highlight or no_highlight
 		})
-		local x, y, w, h = text:text_rect()
-		text:set_size(w, h)
-		panel:set_size(w, h)
-		panel:set_top(self._box_panel:bottom() + 4)
-		panel:set_right(self._box_panel:right())
+		local x, y, w, h = sort_text:text_rect()
+		sort_text:set_size(w, h)
+		sort_button:set_size(w, h)
+		sort_button:set_top(self._box_panel:bottom() + 4)
+		sort_button:set_right(self._box_panel:right())
 	end
 end)
 
