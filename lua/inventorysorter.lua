@@ -84,17 +84,6 @@ function compare_weapons(a, b)
 	end
 end
 
-function compare_damage(a, b)
-	local a_category = get_weapon_category(a)
-	local b_category = get_weapon_category(b)
-
-	if a_category == b_category then
-		return get_weapon_name(a) < get_weapon_name(b)
-	else
-		return a_category < b_category
-	end
-end
-
 function get_weapon_category(weapon)
 	local categories = tweak_data.weapon[weapon.weapon_id].categories
 	local category = tweak_data.gui.buy_weapon_category_aliases[categories[1]] or categories[1]
